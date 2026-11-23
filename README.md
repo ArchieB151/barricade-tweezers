@@ -1,46 +1,35 @@
 # Barricade Tweezers
 
-Python code developed during my PhD for calculating three-dimensional optical tweezer potentials and simulating particle trajectories.
+Scientific Python code developed during my PhD to model repulsive optical barriers for improving loading in molecular optical-tweezer arrays.
 
-The simulations were used to investigate how a repulsive optical barrier surrounding an attractive tweezer affects particle transport and loading efficiency.
+The simulations were used to design a repeated-loading protocol predicted to increase array loading from 35% to 81% at experimentally realistic laser powers.
 
-## Numerical Methods
+## Methods
 
-### Optical Potentials
+- Calculate three-dimensional vector optical fields using Richards-Wolf diffraction integrals.
+- Convert optical intensities and molecular light shifts into state-dependent potentials.
+- Propagate thermal particle ensembles using 3D Monte Carlo simulations to estimate particle flux through the barrier.
+- Parallelise optical-potential calculations across CPU cores and accelerate trajectory and force-interpolation routines with Numba.
 
-The optical fields are calculated using the Richards–Wolf diffraction integral, accounting for the vector nature of tightly focused light.
+Large parameter studies were run on Durham University's Hamilton HPC cluster.
 
-The resulting intensity distributions are used to construct three-dimensional optical dipole potentials for the attractive and repulsive beams.
+## Setup
 
-### Monte Carlo Simulations
+Requires Python 3.13 and [`uv`](https://docs.astral.sh/uv/).
 
-Particle trajectories are calculated by numerically integrating the classical equations of motion,
+```bash
+uv sync
+```
 
-$$
-m\frac{d^2\mathbf{r}}{dt^2} = -\nabla U(\mathbf{r}).
-$$
-
-Initial positions and velocities are sampled from specified distributions. The trajectories are propagated through the potential to determine the rate at which particles cross a defined boundary.
-
-Repeating this for different barrier configurations allows us to investigate how the barrier height affects particle flux.
-
-### Computational Performance
-
-Numba is used to accelerate the numerical calculations. Larger parameter studies were run in parallel on Durham University's Hamilton HPC cluster.
+The workflow scripts are contained in `scripts/`. Full `501^3` potential grids are generated locally and are not stored in the repository.
 
 ## Research
 
-This code was developed for:
+Code developed for:
 
 **A. C. Baldock et al., *Near-deterministic loading of optical tweezer arrays via repulsive barricade potentials*.**
 
-Submitted to *Physical Review Letters* (2026), under review.
-
-The simulations were used to design a loading protocol that increased predicted loading efficiency from approximately 35% to 82%.
-
-## Dependencies
-
-Python, NumPy, SciPy, pandas and Numba.
+Accepted in *Physical Review Research* (2026).
 
 ## Author
 
