@@ -1,5 +1,5 @@
 [project]
-name = "blue-detuned-tweezersv2"
+name = "barricade-tweezers"
 version = "0.1.0"
 description = "Blue-detuned optical tweezer simulations and flux modelling"
 readme = "README.md"
