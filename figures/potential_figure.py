@@ -5,8 +5,9 @@ from matplotlib.colors import TwoSlopeNorm
 from scipy.ndimage import gaussian_filter
 from scipy.interpolate import CubicSpline
 import matplotlib.gridspec as gridspec
+from pathlib import Path
 
-plt.style.use("/Users/archiebaldock/blue-detuned-tweezersV2/figures/FiggureStyleSheet.mplstyle")
+plt.style.use(Path(__file__).parent / "figure_style.mplstyle")
 
 # ---------------- Load potential ----------------
 pot = np.load("Load-your-potential-file-here.npy")  # Replace with your actual file path calculated from scripts/build_barricade_potential.py
