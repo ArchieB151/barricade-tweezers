@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-
-plt.style.use('/Users/archiebaldock/phd/FiggureStyleSheet.mplstyle')
+from pathlib import Path
+plt.style.use(Path(__file__).parent / "figure_style.mplstyle")
 
 # -------------------- COLOUR PALETTE --------------------
 red = '#e31a1a'
